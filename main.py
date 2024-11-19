@@ -2,22 +2,22 @@ num = int(0)
 file = open("todo.txt", "r")
 items = file.readlines()
 file.close()
-print(items)
 
 string = "bro"
 string.upper()
 
 
 while 3 > num:
-    text = input("Add, Show, Edit, Complete or End: ")
+    file = open("todo.txt", "r")
+    items = file.readlines()
+    file.close()
+    text = input("Add, Show, Edit, Complete or End: ")+"\n"
     text = text.strip().lower()
     match text:
         case "add":
             toDo = input("enter your toDo: ")+"\n"
 
-            file = open("todo.txt", "r")
-            items = file.readlines()
-            file.close()
+
             items.append(toDo)
             file = open("todo.txt", "w",)  # stores in text file
             file.writelines(items)
