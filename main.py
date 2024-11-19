@@ -1,5 +1,8 @@
 num = int(0)
-items = []
+file = open("todo.txt", "r")
+items = file.readlines()
+file.close()
+print(items)
 
 string = "bro"
 string.upper()
@@ -10,8 +13,21 @@ while 3 > num:
     text = text.strip().lower()
     match text:
         case "add":
-            toDo = input("enter your toDo: ")
+            toDo = input("enter your toDo: ")+"\n"
+
+            file = open("todo.txt", "r")
+            items = file.readlines()
+            file.close()
             items.append(toDo)
+            file = open("todo.txt", "w",)  # stores in text file
+            file.writelines(items)
+            file.close()
+
+            # file = open("todo.txt","a") # also works
+            # items = file.readlines()
+            # items.append(toDo)
+            # file.writelines(toDo)
+            # file.close()
         case "show":
             # for index, item in items:
             for index,item in enumerate(items):
