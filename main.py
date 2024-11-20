@@ -29,8 +29,9 @@ while 3 > num:
             # file.writelines(toDo)
             # file.close()
         case "show":
-            # for index, item in items:
-            for index,item in enumerate(items):
+            newItems = [item.strip("\n") for item in items]
+            #enumerate makes the items in a list and assigns them number
+            for index,item in enumerate(newItems):
                 print(f"{index+1}. {item}")
 
         case "edit":
