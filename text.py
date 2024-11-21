@@ -1,3 +1,3 @@
-seconds = [1.23, 1.45, 1.02, 1.11]
-seconds.remove(seconds[1])
-print(seconds)
+names = ["john smith", "jay santi", "eva kuki"]
+newNames = [item.title() for item in names]
+print(newNames)

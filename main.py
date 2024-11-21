@@ -8,9 +8,14 @@ string.upper()
 
 
 while 3 > num:
-    file = open("todo.txt", "r")
-    items = file.readlines()
-    file.close()
+    # file = open("todo.txt", "r")
+    # items = file.readlines()
+    # file.close()
+
+    with open("todo.txt", "r") as file:
+        items = file.readlines()
+
+
     text = input("Add, Show, Edit, Complete or End: ")+"\n"
     text = text.strip().lower()
     match text:
@@ -19,9 +24,8 @@ while 3 > num:
 
 
             items.append(toDo)
-            file = open("todo.txt", "w",)  # stores in text file
-            file.writelines(items)
-            file.close()
+            with open("todo.txt", "w",) as file:  # stores in text file
+                file.writelines(items)
 
             # file = open("todo.txt","a") # also works
             # items = file.readlines()
@@ -36,12 +40,22 @@ while 3 > num:
 
         case "edit":
             number = int(input("number of the toDo to edit: "))
-            newTodo = input("enter what edited todo: ")
+            newTodo = input("enter what edited todo: ")+"\n"
             items[number-1] = newTodo
-            print()
+
+            with open("todo.txt", "w", ) as file:
+                file.writelines(items)
+
         case "complete":
             number = int(input("enter the number of ToDo to complete: "))
+
+            itemToRemove  = items[number-1].strip("\n")
             items.remove(items[number-1]) #can also use pop with index number
+
+            with open("todo.txt", "w", ) as file:
+                file.writelines(items)
+
+            print(f"the task, '{itemToRemove}' has beem removed from the todo list")
 
         case "end":
             break
