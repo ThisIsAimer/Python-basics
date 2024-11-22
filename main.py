@@ -1,12 +1,12 @@
 num = int(0)
-def get_todos():
-    with open("files/Other code/todo.txt", "r") as _file:
+def get_todos(filepath):
+    with open(filepath, "r") as _file:
         _items = _file.readlines()
         return _items
 
-def write_todos(items_):
-    with open("files/Other code/todo.txt", "w", ) as _file:  # stores in text file
-        _file.writelines(items_)
+def write_todos(filepath, items):
+    with open(filepath, "w", ) as _file:  # stores in text file
+        _file.writelines(items)
 
 string = "bro"
 string.upper()
@@ -17,7 +17,7 @@ while 3 > num:
     # items = file.readlines()
     # file.close()
 
-    items = get_todos()
+    items = get_todos("files/Other code/todo.txt")
     print("---------------------------------------------------------")
     userInput = input("Add, Show, Edit, Complete or End: ")
     userInput = userInput.strip().lower()
@@ -27,7 +27,7 @@ while 3 > num:
 
             items.append(toDo + "\n")
 
-            write_todos(items)
+            write_todos("files/Other code/todo.txt",items)
 
             # file = open("todo.txt","a") # also works
             # items = file.readlines()
@@ -46,7 +46,7 @@ while 3 > num:
             newTodo = input("enter what edited todo: ")+"\n"
             items[number-1] = newTodo
 
-            write_todos(items)
+            write_todos("files/Other code/todo.txt",items)
 
         except ValueError:
             print("____________________invalid______________________")
@@ -64,7 +64,7 @@ while 3 > num:
             itemToRemove  = items[number-1].strip("\n")
             items.remove(items[number-1]) #can also use pop with index number
 
-            write_todos(items)
+            write_todos("files/Other code/todo.txt",items)
 
             print(f"the task, '{itemToRemove}' has beem removed from the todo list")
         except ValueError:
