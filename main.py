@@ -16,11 +16,10 @@ while 3 > num:
         items = file.readlines()
 
 
-    text = input("Add, Show, Edit, Complete or End: ")+"\n"
-    text = text.strip().lower()
-    match text:
-        case "add":
-            toDo = input("enter your toDo: ")+"\n"
+    userInput = input("Add, Show, Edit, Complete or End: ") + "\n"
+    userInput = userInput.strip().lower()
+    if "add" in userInput:
+            toDo = userInput[4:]
 
 
             items.append(toDo)
@@ -32,13 +31,13 @@ while 3 > num:
             # items.append(toDo)
             # file.writelines(toDo)
             # file.close()
-        case "show":
+    elif "show" in userInput:
             newItems = [item.strip("\n") for item in items]
             #enumerate makes the items in a list and assigns them number
             for index,item in enumerate(newItems):
                 print(f"{index+1}. {item}")
 
-        case "edit":
+    elif "edit" in userInput:
             number = int(input("number of the toDo to edit: "))
             newTodo = input("enter what edited todo: ")+"\n"
             items[number-1] = newTodo
@@ -46,7 +45,7 @@ while 3 > num:
             with open("todo.txt", "w", ) as file:
                 file.writelines(items)
 
-        case "complete":
+    elif "complete" in userInput:
             number = int(input("enter the number of ToDo to complete: "))
 
             itemToRemove  = items[number-1].strip("\n")
@@ -57,9 +56,9 @@ while 3 > num:
 
             print(f"the task, '{itemToRemove}' has beem removed from the todo list")
 
-        case "end":
+    elif "end" in userInput:
             break
-        case somethingElse:
+    else :
             print("invalid error")
 
 
