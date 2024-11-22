@@ -38,7 +38,7 @@ while 3 > num:
                 print(f"{index+1}. {item}")
 
     elif "edit" in userInput:
-            number = int(input("number of the toDo to edit: "))
+            number = int(userInput[5:])
             newTodo = input("enter what edited todo: ")+"\n"
             items[number-1] = newTodo
 
@@ -46,7 +46,7 @@ while 3 > num:
                 file.writelines(items)
 
     elif "complete" in userInput:
-            number = int(input("enter the number of ToDo to complete: "))
+            number = int(int(userInput[9:]))
 
             itemToRemove  = items[number-1].strip("\n")
             items.remove(items[number-1]) #can also use pop with index number
