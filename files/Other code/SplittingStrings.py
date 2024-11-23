@@ -1,8 +1,8 @@
 user_input = input("please enter your numbers with a ,: ")
 
-our_list = user_input.split(",")
+string_list = user_input.split(",")
 
-number_list = [float(item) for item in our_list]
+number_list = [float(item) for item in string_list]
 
 addition = 0
 
