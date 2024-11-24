@@ -2,7 +2,7 @@ from functions import *
 #import functions
 #functions.get_todos()
 
-while 3 > num:
+while True:
     # file = open("todo.txt", "r")
     # items = file.readlines()
     # file.close()
