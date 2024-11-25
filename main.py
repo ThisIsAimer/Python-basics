@@ -1,6 +1,11 @@
+from time import strftime
+
 from functions import *
-#import functions
-#functions.get_todos()
+import time
+
+now = strftime("%b %d %Y, %H:%M:%S")
+
+print("it is:- " + now)
 
 while True:
     # file = open("todo.txt", "r")
@@ -10,7 +15,7 @@ while True:
     items = get_todos()
     print("---------------------------------------------------------")
     userInput = input("Add, Show, Edit, Complete or End: ")
-    userInput = userInput.strip().lower()
+    userInput = userInput.lower()
     if userInput.startswith("add"):
             toDo = userInput[4:]
 
