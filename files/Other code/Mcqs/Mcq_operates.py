@@ -4,12 +4,15 @@ with open("Data.json","r") as file:
     content = file.read()
 data = json.loads(content)
 
-for items in data:
-    print( items["question"])
-    for index, item in enumerate(items["options"]):
-        print(index+1, f" {item}")
 
-    user_input = int(input("enter the option number you find correct: "))
+for index,items in enumerate(data):
+    print( f"Question no {index+1}: {items["question"]}")
+    choices = ord("a")
+    for item in items["options"]:
+        print(f"{chr(choices)}. {item}")
+        choices += 1
+
+    user_input = input("enter the option you think is correct: ").lower()
     items["user_input"] = user_input
 print("-------------------------------------------------------------------------------")
 score = 0
