@@ -1,4 +1,3 @@
-clean houseget food
-wake up
+clean housewake up
 go to sleep
 make pasta
