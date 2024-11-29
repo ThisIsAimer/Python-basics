@@ -2,3 +2,4 @@ clean house
 wake up
 get food
 get something
+make pasta
