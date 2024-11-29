@@ -14,9 +14,11 @@ todos = functions.get_todos()
 
 
 web.subheader("")
-web.title("My ToDo App")
-web.subheader("this is my todo list")
-web.write("\n")
+web.title("The ToDo App")
+web.subheader("this app will increase your productivity")
+
+
+web.text_input(label="",placeholder="add a new todo...",on_change=add_todo,key="add_todo")
 
 
 for index,todo in enumerate(todos):
@@ -27,6 +29,5 @@ for index,todo in enumerate(todos):
         del web.session_state[index]
         web.rerun()
 
-web.text_input(label="",placeholder="add a new todo...",on_change=add_todo,key="add_todo")
 
 # web.session_state
