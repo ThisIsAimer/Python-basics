@@ -9,6 +9,7 @@ def add_todo():
     todos.append(new_todo+"\n")
     functions.write_todos(todos)
 
+
 todos = functions.get_todos()
 
 
@@ -18,7 +19,14 @@ web.subheader("this is my todo list")
 web.write("\n")
 
 
-for todo in todos:
-    web.checkbox(todo)
+for index,todo in enumerate(todos):
+    check_box = web.checkbox(todo,key=index)
+    if check_box:
+        todos.pop(index)
+        functions.write_todos(todos)
+        del web.session_state[index]
+        web.rerun()
 
 web.text_input(label="",placeholder="add a new todo...",on_change=add_todo,key="add_todo")
+
+# web.session_state
