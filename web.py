@@ -5,8 +5,8 @@ import functions
 
 
 def add_todo():
-    new_todo = web.session_state["add_todo"]
-    todos.append(new_todo+"\n")
+    new_todo = web.session_state["add_todo"] + "\n"
+    todos.append(new_todo)
     functions.write_todos(todos)
 
 
